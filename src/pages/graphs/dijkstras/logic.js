@@ -54,7 +54,7 @@ export function erase(id) {
 export function randomObstacles() {
     clearJunk(true)
     for (let vertex of [...document.getElementsByClassName('vertex')]) {
-        if (vertex.className != 'vertex start' && vertex.className != 'vertex target' && Math.floor(Math.random()*15) < 5) {
+        if (vertex.className !== 'vertex start' && vertex.className !== 'vertex target' && Math.floor(Math.random()*15) < 5) {
             vertex.className = 'vertex wall'
         }
     }
@@ -100,6 +100,8 @@ export function dijkstras() {
 
         let timeOutMultiplier = 1
         let found = false
+        const newStart = start
+        const newTarget = target
         while (nextUp.length !== 0 && !found) {
             let cur = nextUp.shift()
             visited.add(cur)
@@ -118,7 +120,7 @@ export function dijkstras() {
 
             setTimeout(() => {
                 for (let neighbor of nextProcessed) {
-                    if (neighbor !== start && neighbor !== target) {
+                    if (neighbor !== newStart && neighbor !== newTarget) {
                         document.getElementById(neighbor).className = 'vertex searched'
                     }
                 }
@@ -136,16 +138,18 @@ export function dijkstras() {
             let prev = start
             cur = path.pop()
             for (let i = 0; i < length + 1; i++) {
+                const newCur = cur
+                const newPrev = prev
                 setTimeout(() => {
-                    if (cur !== start) {
-                        let direction = getDirection(prev, cur)
+                    if (newCur !== newStart) {
+                        let direction = getDirection(newPrev, newCur)
                         
-                        document.getElementById(prev).className = 'vertex trail'
-                        document.getElementById(cur).className = 'vertex path ' + direction
+                        document.getElementById(newPrev).className = 'vertex trail'
+                        document.getElementById(newCur).className = 'vertex path ' + direction
                     }
-                    prev = cur
-                    cur = path.pop()
                 }, 70*i)
+                prev = cur
+                cur = path.pop()
             }
         }, timeDelay*timeOutMultiplier + 10)
         

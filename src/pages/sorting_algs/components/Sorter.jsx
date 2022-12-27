@@ -12,9 +12,9 @@ export default function Page() {
   function makeArray(n) {
     document.getElementById('size').value = n
     let spaces = ''
-    if (n == 1) {
+    if (n === 1) {
       spaces = '  '
-    } else if (n != 100) {
+    } else if (n !== 100) {
       spaces = ' '
     }
     document.getElementById('size-label').innerHTML = `Size: ${n}${spaces}`

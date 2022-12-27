@@ -1,13 +1,11 @@
 import React from 'react'
 import Vertex from './Vertex';
 import './Board.scss'
-import { useState } from 'react';
 import { height, width, node_size } from '../logic'
 import Menu from './Menu';
 import Nav from '../../../home/Nav';
 
 function Board() {
-    const [start, changeStart] = useState('')
     let real_height = height - (height % node_size)
     let real_width = width - (width % node_size)
 
