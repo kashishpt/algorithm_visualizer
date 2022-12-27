@@ -3,12 +3,24 @@ import './Bar.scss'
 
 function Bar(props) {
 
-    let style = {
+    const styleBar = {
         "height": `${props.height}px`
     }
 
+    const styleHighlight = {
+        "height": `${props.max - props.height}px`
+    }
+
+    const styleContainer = {
+        "height": `${props.max}px`
+    }
+
     return (
-        <div id={props.id} className='bar' style={style}></div>
+        <div id={props.id} className='bar-container' style={styleContainer}>
+            <div id={props.id + '-solid'} className='bar' style={styleBar}></div>
+            <div id={`${props.id}-highlight`} className='bar-highlight' style={styleHighlight}></div>
+        </div>
+        
     )
 }
 export default Bar

@@ -1,6 +1,4 @@
 #nav {
-    height: auto;
-    width: 100%;
     display: flexbox;
     flex-direction: row;
     margin-bottom: 20px;
@@ -9,15 +7,21 @@
         color: white;
         font-size: small;
         text-decoration: none;
-        background-color: plum;
+        background-color: rgb(188, 179, 188);
         padding: 3px 5px 3px 5px;
         border-radius: 4px;
         margin: 0px 4px 0px 4px;
         opacity: 60%;
+        transition: all 0.3s ease;
     }
 
-    div {
+    a:hover {
+        opacity: 100%;
+    }
+
+    .crumb {
         display: inline-block;
         color: grey;
+        vertical-align: middle;
     }
 }

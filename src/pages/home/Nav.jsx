@@ -3,9 +3,9 @@ import './Nav.scss'
 
 function Nav(props) {
     const allCrumbs = [
-        <div id='home' key='home'><a href='/'>Home</a></div>,
-        <div id='graphs' key='graphs'> {'<'} <a href='/graphs'>Graphs</a></div>,
-        <div id='sorter' key='sorter'> {'<'} <a href='/sorting'>Sorting</a></div>
+        <div className='crumb' id='home' key='home'><a href='/'>Home</a></div>,
+        <div className='crumb' id='graphs' key='graphs'> {'<'} <a href='/graphs'>Graphs</a></div>,
+        <div className='crumb' id='sorter' key='sorter'> {'<'} <a href='/sorting'>Sorting</a></div>
     ]
 
     return (

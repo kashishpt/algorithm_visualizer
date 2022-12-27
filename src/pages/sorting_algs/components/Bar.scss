@@ -1,15 +1,26 @@
 .bar {
     width: 10px;
     background-color: orange;
-    opacity: 50%;
+}
+
+
+
+.bar-highlight {
+    opacity: 20%;
+    background-color: orange;
+    z-index: 1;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .observing {
-    opacity: 100%;
     background-color: blue;
 }
 
 .sorted {
-    opacity: 100%;
     background-color: green;
 }

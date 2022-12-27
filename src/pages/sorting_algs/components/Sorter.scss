@@ -1,20 +1,23 @@
-#bars {
-    display: flex;
-    flex-direction: row;
-    // transform-origin: 50%;
-    transform: scale(1, -1);
-    justify-content: space-around;
-    // margin: auto;
-    // width: inherit;
-    // margin-bottom: 0px;
-    // vertical-align: bottom;
-    // position: absolute;
-}
-
 #sorter {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+
+    #bars {
+        display: flex;
+        flex-direction: row;
+        transform: scale(1, -1);
+        justify-content: space-around;
+    }
+
+    #highlights {
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        transform: scale(1, -1);
+        justify-content: space-around;
+        transform: translateY(-100%);
+    }
 
     #menu {
         display: flex;
@@ -27,4 +30,13 @@
         left: 50%;
         transform: translate(-50%, 0%);
     }
+
+    #randomize:hover {
+        background-color: lightgreen;
+    }
+
+    #bubble:hover {
+        background-color: lightblue;
+    }
+
 }
