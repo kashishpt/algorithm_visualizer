@@ -1,0 +1,23 @@
+#nav {
+    height: auto;
+    width: 100%;
+    display: flexbox;
+    flex-direction: row;
+    margin-bottom: 20px;
+
+    a {
+        color: white;
+        font-size: small;
+        text-decoration: none;
+        background-color: plum;
+        padding: 3px 5px 3px 5px;
+        border-radius: 4px;
+        margin: 0px 4px 0px 4px;
+        opacity: 60%;
+    }
+
+    div {
+        display: inline-block;
+        color: grey;
+    }
+}

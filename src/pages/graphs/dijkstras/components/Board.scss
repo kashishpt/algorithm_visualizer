@@ -1,0 +1,12 @@
+#board {
+
+    #grid {
+        border: 2px solid grey;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all 1s ease;
+        cursor: crosshair;
+    }
+}

@@ -1,0 +1,47 @@
+.vertex {
+    // border: 1px solid lightgrey;
+    // margin: -1px;
+    background-color: lightgrey;
+    background-image: none;
+    opacity: 70%;
+    box-sizing: border-box;
+}
+
+.vertex:hover {
+    opacity: 100%;
+}
+
+.start {
+    background-image: url('../node_images/standing.png');
+    background-color: lightgreen;
+}
+
+.target {
+    background-image: url('../node_images/target.png');
+    background-color: violet;
+}
+
+.wall {
+    background-color: black;
+}
+
+.up, .down {
+    background-image: url('../node_images/up.png');
+}
+
+.left {
+    background-image: url('../node_images/left.png');
+}
+
+.right {
+    background-image: url('../node_images/right.png');
+}
+
+.trail {
+    background-color: rgba(14, 255, 232, 0.58);
+}
+
+.searched {
+    transition: all 0.3s ease;
+    background-color: rgba(19, 248, 111, 0.664);
+}

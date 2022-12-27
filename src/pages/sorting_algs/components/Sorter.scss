@@ -1,0 +1,30 @@
+#bars {
+    display: flex;
+    flex-direction: row;
+    // transform-origin: 50%;
+    transform: scale(1, -1);
+    justify-content: space-around;
+    // margin: auto;
+    // width: inherit;
+    // margin-bottom: 0px;
+    // vertical-align: bottom;
+    // position: absolute;
+}
+
+#sorter {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    #menu {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        bottom: 7px;
+        justify-content: space-around;
+        margin-top: 7px;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+}
