@@ -10,6 +10,10 @@ export default function Page() {
 
 
   function makeArray(n) {
+    for (let bar of [...document.getElementsByClassName('bar sorted')]) {
+      bar.className = 'bar'
+    }
+
     document.getElementById('size').value = n
     let spaces = ''
     if (n === 1) {
@@ -24,6 +28,11 @@ export default function Page() {
     }
 
     updateBars(newArr)
+  }
+
+  function myUpdate(arr) {
+    updateBars(arr)
+    return arr
   }
 
   
@@ -42,7 +51,8 @@ export default function Page() {
             <label htmlFor='size' id='size-label'>Size: </label>
             <input id='size' type='range' min={1} max={100} onChange={e => makeArray(e.target.value)}/>
           </div>
-          <button onClick={() => bubbleSort(bars, updateBars)}>Bubble</button>
+          <button onClick={() => bubbleSort(bars, myUpdate)}>Bubble Sort</button>
+          {/* <button onClick={() => test()}>Bubble</button> */}
         </div>
         
       </div>
