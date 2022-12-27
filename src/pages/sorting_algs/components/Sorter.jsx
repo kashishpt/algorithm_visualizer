@@ -8,7 +8,6 @@ import { bubbleSort, selectionSort } from '../logic.js'
 export default function Page() {
   const [bars, updateBars] = useState([])
   const [speed, changeSpeed] = useState(50)
-  const [max, updateMax] = useState(0)
   // const []
 
 
@@ -40,13 +39,11 @@ export default function Page() {
       }
     }
 
-    updateBars(heights.map((e, idx) => <Bar id={`${idx}`} height={e} max={tempMax} />))
-
-    updateMax(tempMax)
+    updateBars(heights.map((e, idx) => <Bar id={`${idx}`} height={e} max={604} />))
   }
 
   function myUpdate(arr) {
-    let newArr = arr.map((e, idx) => <Bar id={`${idx}`} height={e.props.height} max={max}/>)
+    let newArr = arr.map((e, idx) => <Bar id={`${idx}`} height={e.props.height} max={604}/>)
     updateBars(newArr)
 
     return arr
