@@ -1,15 +1,22 @@
-.vertex {
+.vertex, .vertex-label {
     // border: 1px solid lightgrey;
     // margin: -1px;
+    // background-image: url('../node_images/blank.jpg');
     background-color: lightgrey;
-    background-image: none;
+    // background-image: none;
     opacity: 70%;
     box-sizing: border-box;
 }
 
-.vertex:hover {
+.vertex-label {
+    margin: auto;
+}
+
+.vertex:hover, .vertex-label:hover {
     opacity: 100%;
 }
+
+// SPECIFIC TYPES
 
 .start {
     background-image: url('../node_images/standing.png');
@@ -38,10 +45,18 @@
 }
 
 .trail {
-    background-color: rgba(14, 255, 232, 0.58);
+    transition: all 0.1s ease;
+    background-image: url('../node_images/oak.png');
 }
 
 .searched {
-    transition: all 0.3s ease;
-    background-color: rgba(19, 248, 111, 0.664);
+    background-image: url('../node_images/water.webp');
+}
+
+.sad {
+    background-image: url('../node_images/sad.png');
+}
+
+.no-path {
+    background-color: rgba(255, 47, 0, 0.43);
 }

@@ -1,8 +1,10 @@
 import React from 'react'
 import './Menu.scss'
-import { width, setAction, dijkstras, randomObstacles, clearJunk } from '../logic'
+import { width, setAction, dijkstras, randomObstacles, clearJunk, node_size } from '../logic'
 
 function Menu() {
+
+    const style = {'width': `${node_size}px`, 'height':`${node_size}px`}
 
     function handleOutlines(show) {
         console.log(show)
@@ -21,13 +23,21 @@ function Menu() {
         <div id='menu' style={{'width': `${width}px`}}>
             <form onChange={e => setAction(e.target.id)}>
                 <input id='start' type='radio' name='placer' defaultChecked></input>
-                <label htmlFor='start'>Start</label>
+                <label className='radio-label' htmlFor='start'>Start
+                    <div style={style} className='vertex-label start'></div>
+                </label>
                 <input id='target' type='radio' name='placer'></input>
-                <label htmlFor='target'>Target</label>
+                <label className='radio-label' htmlFor='target'>Target
+                    <div style={style} className='vertex-label target'></div>
+                </label>
                 <input id='wall' type='radio' name='placer'></input>
-                <label htmlFor='wall'>Wall</label>
+                <label className='radio-label' htmlFor='wall'>Wall
+                    <div style={style} className='vertex-label wall'></div>
+                </label>
                 <input id='erase' type='radio' name='placer'></input>
-                <label htmlFor='erase'>Eraser</label>
+                <label className='radio-label' htmlFor='erase'>Eraser
+                    <div style={style} className='vertex-label'></div>
+                </label>
             </form>
             <button id='run' onClick={dijkstras}>Run</button>
             <button id='random' onClick={randomObstacles}>Random</button>

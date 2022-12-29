@@ -92,6 +92,8 @@ export function dijkstras() {
     }
 
     clearJunk(false)
+    document.getElementById(start).className = 'vertex start'
+    document.getElementById(target).className = 'vertex target'
 
     if (start !== '' && target !== '') {
         let preds = {}
@@ -127,34 +129,47 @@ export function dijkstras() {
             }, timeDelay*timeOutMultiplier++)
         }
         
+        
         setTimeout(() => {
-            let cur = preds[target]
-            let path = []
-            while (cur !== start) {
-                path.push(cur)
-                cur = preds[cur]
-            }
-            const length = path.length
-            let prev = start
-            cur = path.pop()
-            for (let i = 0; i < length + 1; i++) {
-                const newCur = cur
-                const newPrev = prev
-                setTimeout(() => {
-                    if (newCur !== newStart) {
-                        let direction = getDirection(newPrev, newCur)
-                        
-                        document.getElementById(newPrev).className = 'vertex trail'
-                        document.getElementById(newCur).className = 'vertex path ' + direction
-                    }
-                }, 70*i)
-                prev = cur
+            if (target in preds) {
+                let cur = preds[target]
+                let path = []
+                while (cur !== start) {
+                    path.push(cur)
+                    cur = preds[cur]
+                }
+                const length = path.length
+                let prev = start
                 cur = path.pop()
-            }
+                for (let i = 0; i < length; i++) {
+                    const newCur = cur
+                    const newPrev = prev
+                    setTimeout(() => {
+                        if (newCur !== newStart) {
+                            let direction = getDirection(newPrev, newCur)
+                            
+                            document.getElementById(newPrev).className = 'vertex trail'
+                            document.getElementById(newCur).className = 'vertex path ' + direction
+                        }
+                    }, 70*i)
+                    prev = cur
+                    cur = path.pop()
+                }
+            } else {
+                document.getElementById(start).className = 'vertex sad'
+                let i = 0
+                for (let vertex of [...document.getElementsByClassName('searched')]) {
+                    const vert = vertex
+                    setTimeout(() => {
+                        vert.className = 'vertex no-path'
+                    }, 15*i++)
+                }
+        }
         }, timeDelay*timeOutMultiplier + 10)
+    }
+        
         
 
-    }
 }
 
 function neighbors(vertex) {
@@ -182,11 +197,7 @@ function neighbors(vertex) {
 export function clearJunk(walls) {
     for (let vertex of [...document.getElementsByClassName('vertex')]) {
         let className = vertex.className
-        if (!className.includes('start') 
-            && !className.includes('target')
-            && !className.includes('wall')) {
-            vertex.className = 'vertex'
-        } else if (className.includes('wall') && walls) {
+        if (walls || !className.includes('wall')) {
             vertex.className = 'vertex'
         }
     }

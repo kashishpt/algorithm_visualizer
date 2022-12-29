@@ -71,8 +71,8 @@ export default function Page() {
             <label htmlFor='speed' id='speed-label'>Speed: {speed}</label>
             <input id='speed' type='range' min={1} max={100} onChange={e => changeSpeed(e.target.value)} />
           </div>
-          <button className='sorting-button' id='bubble' onClick={() => bubbleSort(bars, myUpdate, (101 - speed)/5)}>Bubble Sort</button>
-          <button className='sorting-button' id='selection' onClick={() => selectionSort(bars, myUpdate, (101 - speed)/5)}>Selection Sort</button>
+          <button className='sorting-button' id='bubble' onClick={() => bubbleSort(bars, myUpdate, (101 - speed)/5)}>Bubble</button>
+          <button className='sorting-button' id='selection' onClick={() => selectionSort(bars, myUpdate, (101 - speed)/5)}>Selection</button>
         </div>
         
       </div>

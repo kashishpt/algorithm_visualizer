@@ -13,7 +13,7 @@ function Board() {
     let vertices = []
     for (let i = 0; i < real_height/node_size; i++) {
         for (let j = 0; j < real_width/node_size; j++) {
-            vertices.push(<Vertex key={i+j} row={i} col={j}/>)
+            vertices.push(<Vertex key={`${i}-${j}`} row={i} col={j}/>)
         }
         
     }
