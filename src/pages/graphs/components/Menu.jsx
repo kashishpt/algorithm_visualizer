@@ -39,7 +39,7 @@ function Menu() {
                     <div style={style} className='vertex-label'></div>
                 </label>
             </form>
-            <button id='run' onClick={dijkstras}>Run</button>
+            <button id='run' onClick={dijkstras}>Dijkstra's</button>
             <button id='random' onClick={randomObstacles}>Random</button>
             <button id='clear' onClick={() => clearJunk(true)}>Clear</button>
             <label htmlFor='outlines'>Vertex outlines</label>

@@ -35,6 +35,7 @@ export async function selectionSort(bars1, updateBars, speed) {
     let sorted = new Set()
     let bars = [...bars1]
 
+
     for (let i = 0; i < bars.length - 1; i++) {
         let min = i
 
@@ -66,10 +67,7 @@ export async function selectionSort(bars1, updateBars, speed) {
 
     }
 
-    changeClass(bars, bars.length - 1, 'sorted')
-
     toggleBottons()
-
 }
 
 function toggleBottons() {

@@ -1,18 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home.jsx'
-import Board from './pages/graphs/dijkstras/components/Board.jsx';
-import Graph from './pages/graphs/Graph.jsx';
-import Sorter from './pages/sorting_algs/components/Sorter.jsx'
+import Board from './pages/graphs/components/Board.jsx';
+import Array from './pages/arrays/components/Array.jsx'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/graphs' element={<Graph />} />
-        <Route path='/dijkstras' element={<Board />} />
-        <Route path='/sorting' element={<Sorter />} />
+        <Route path='/graphs' element={<Board />} />
+        <Route path='/arrays' element={<Array />} />
       </Routes>
     </BrowserRouter>
   );

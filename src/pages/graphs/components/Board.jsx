@@ -3,7 +3,7 @@ import Vertex from './Vertex';
 import './Board.scss'
 import { height, width, node_size } from '../logic'
 import Menu from './Menu';
-import Nav from '../../../home/Nav';
+import Nav from '../../home/Nav';
 
 function Board() {
     let real_height = height - (height % node_size)

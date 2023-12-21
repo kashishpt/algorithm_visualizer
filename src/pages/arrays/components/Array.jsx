@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import Bar from './Bar'
-import './Sorter.scss'
+import './Array.scss'
 import Nav from '../../home/Nav'
 import { bubbleSort, selectionSort } from '../logic.js'
 
-export default function Page() {
-  const [bars, updateBars] = useState([])
+export default function Array() {
+  const [bars, updateBars] = useState([<Bar id={"0"} height={300} max={604}/>])
   const [speed, changeSpeed] = useState(50)
   // const []
 
@@ -21,22 +21,12 @@ export default function Page() {
     }
 
     document.getElementById('size').value = n
-    let spaces = ''
-    if (n === 1) {
-      spaces = '  '
-    } else if (n !== 100) {
-      spaces = ' '
-    }
-    document.getElementById('size-label').innerHTML = `Size: ${n}${spaces}`
+    document.getElementById('size-label').innerHTML = `Size: ${n}`
 
     let heights = []
-    let tempMax = 0
     for (let i = 0; i < n; i++) {
       let height = Math.floor(Math.random()*600) + 5
       heights.push(height)
-      if (height > tempMax) {
-        tempMax = height
-      }
     }
 
     updateBars(heights.map((e, idx) => <Bar id={`${idx}`} height={e} max={604} />))
@@ -55,13 +45,13 @@ export default function Page() {
   return (
     <>
       <Nav sorter/>
-      <div id="sorter">
+      <div id="array">
         <div id="bars">
           {bars}
         </div>
           
 
-        <div id='menu'>
+        <div id='array-options'>
           <button className='sorting-button' id='randomize' onClick={() => makeArray(Math.floor(Math.random() * (100)) + 1)}>Randomize!</button>
           <div>
             <label htmlFor='size' id='size-label'>Size:   </label>
@@ -71,8 +61,8 @@ export default function Page() {
             <label htmlFor='speed' id='speed-label'>Speed: {speed}</label>
             <input id='speed' type='range' min={1} max={100} onChange={e => changeSpeed(e.target.value)} />
           </div>
-          <button className='sorting-button' id='bubble' onClick={() => bubbleSort(bars, myUpdate, (101 - speed)/5)}>Bubble</button>
-          <button className='sorting-button' id='selection' onClick={() => selectionSort(bars, myUpdate, (101 - speed)/5)}>Selection</button>
+          <button className='sorting-button' id='bubble' onClick={() => bubbleSort(bars, myUpdate, (101 - speed)/5)} disabled={bars.length === 0}>Bubble</button>
+          <button className='sorting-button' id='selection' onClick={() => selectionSort(bars, myUpdate, (101 - speed)/5)} disabled={bars.length === 0}>Selection</button>
         </div>
         
       </div>
